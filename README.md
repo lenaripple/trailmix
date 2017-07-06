@@ -1,1 +1,1 @@
-# trailmix
+# Welcome to trailMix
