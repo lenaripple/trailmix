@@ -8,6 +8,7 @@ import {
   View,
   Button
 } from 'react-native';
+
 import SafariView from 'react-native-safari-view';
 
 export default class App extends Component {
@@ -46,10 +47,12 @@ export default class App extends Component {
   };
 
   // Handle Login with Facebook button tap
-  loginWithFacebook = () => this.openURL('http://localhost:3000/auth/facebook');
-
-  // Open URL in a browser
+  loginWithFacebook = () =>{
+    console.log('hit facebook');
+    this.openURL('http://localhost:3000/auth/facebook');
+    }
   openURL = (url) => {
+    console.log(url);
     // Use SafariView on iOS
     if (Platform.OS === 'ios') {
       SafariView.show({
@@ -64,6 +67,7 @@ export default class App extends Component {
   };
 
   render() {
+    console.log('heyyyyy');
     const { user } = this.state;
     return (
       <View style={styles.container}>
@@ -83,17 +87,15 @@ export default class App extends Component {
                 Welcome Stranger!
               </Text>
               <Text style={styles.text}>
-                Please log in to continue {'\n'}
+                Please log in to continue
               </Text>
             </View>
         }
-        {/* Login buttons */}
         <View style={styles.buttons}>
           <Button
             name="facebook"
             backgroundColor="#3b5998"
             onPress={this.loginWithFacebook}
-            {...iconStyles}
             title="Login with Facebook"
           />
         </View>
