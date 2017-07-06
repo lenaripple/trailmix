@@ -5,9 +5,9 @@ import {
   StyleSheet,
   Platform,
   Text,
-  View
+  View,
+  Button
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import SafariView from 'react-native-safari-view';
 
 export default class App extends Component {
@@ -48,9 +48,6 @@ export default class App extends Component {
   // Handle Login with Facebook button tap
   loginWithFacebook = () => this.openURL('http://localhost:3000/auth/facebook');
 
-  // Handle Login with Google button tap
-  loginWithGoogle = () => this.openURL('http://localhost:3000/auth/google');
-
   // Open URL in a browser
   openURL = (url) => {
     // Use SafariView on iOS
@@ -85,25 +82,20 @@ export default class App extends Component {
               <Text style={styles.header}>
                 Welcome Stranger!
               </Text>
-              <View style={styles.avatar}>
-                <Icon name="user-circle" size={100} color="rgba(0,0,0,.09)" />
-              </View>
               <Text style={styles.text}>
                 Please log in to continue {'\n'}
-                to the awesomness
               </Text>
             </View>
         }
         {/* Login buttons */}
         <View style={styles.buttons}>
-          <Icon.Button
+          <Button
             name="facebook"
             backgroundColor="#3b5998"
             onPress={this.loginWithFacebook}
             {...iconStyles}
-          >
-            Login with Facebook
-          </Icon.Button>
+            title="Login with Facebook"
+          />
         </View>
       </View>
     );
