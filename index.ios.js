@@ -1,22 +1,14 @@
-// import React, { Component } from 'react';
-// import {
-//   AppRegistry,
-//   StyleSheet,
-//   Text,
-//   View
-// } from 'react-native';
-//
-// export default class trailmix extends Component {
-//   render() {
-//     return (
-//       <View style={styles.container}>
-//         <Text style={styles.welcome}>
-//           Welcome to trailMix!
-//         </Text>
-//       </View>
-//     );
-//   }
-// }
+import React, { Component } from 'react';
+var ReactNative = require('react-native')
+var Login = require('./App/Components/Login')
+var Main = require('./App/Components/Main')
+import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View
+} from 'react-native';
+import {StackNavigator} from 'react-navigation';
 //
 // const styles = StyleSheet.create({
 //   container: {
@@ -24,22 +16,11 @@
 //     justifyContent: 'center',
 //     alignItems: 'center',
 //     backgroundColor: '#F5FCFF',
-//   },
-//   welcome: {
-//     fontSize: 20,
-//     textAlign: 'center',
-//     margin: 10,
-//   },
-//   instructions: {
-//     textAlign: 'center',
-//     color: '#333333',
-//     marginBottom: 5,
-//   },
+//   }
 // });
-//
-// AppRegistry.registerComponent('trailmix', () => trailmix);
+const trailmix = StackNavigator({
+  Login: {screen: Login},
+  Main: {screen: Main}
+})
 
-import { AppRegistry } from 'react-native';
-import App from './app';
-
-AppRegistry.registerComponent('trailmix', () => App);
+AppRegistry.registerComponent('trailmix', () => trailmix);
