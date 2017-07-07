@@ -47,12 +47,12 @@ export default class App extends Component {
   };
 
   // Handle Login with Facebook button tap
-  loginWithFacebook = () =>{
-    console.log('hit facebook');
+  loginWithFacebook = () =>
     this.openURL('http://localhost:3000/auth/facebook');
-    }
+
   openURL = (url) => {
     console.log(url);
+    console.log(SafariView);
     // Use SafariView on iOS
     if (Platform.OS === 'ios') {
       SafariView.show({
@@ -67,7 +67,6 @@ export default class App extends Component {
   };
 
   render() {
-    console.log('heyyyyy');
     const { user } = this.state;
     return (
       <View style={styles.container}>
