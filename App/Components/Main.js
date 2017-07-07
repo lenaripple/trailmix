@@ -21,6 +21,13 @@ import {StackNavigator} from 'react-navigation';
      return(
        <View style={styles.mainContainer}>
          <Text style={styles.header}>Welcome!</Text>
+         <Image
+            style={{height: '25%',
+            width: '50%',
+            alignSelf: 'center'}}
+            placeholder="fb profile"
+            resizeMode="contain"
+          />
          <TouchableHighlight
          style={styles.button}
            onPress={() =>

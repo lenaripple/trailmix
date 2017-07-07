@@ -12,6 +12,11 @@ import {
 
 import {StackNavigator} from 'react-navigation';
 
+import { Form,
+  Separator,InputField, LinkField,
+  SwitchField, PickerField,DatePickerField,TimePickerField
+  } from 'react-native-form-generator';
+
  class AddEvent extends Component {
    static navigationOptions = ({navigation})=> ({
      title: 'AddEvent',
@@ -19,8 +24,46 @@ import {StackNavigator} from 'react-navigation';
    render(){
      const {navigate} = this.props.navigation;
      return(
-     <Text>AddEvent</Text>
-   )
+       <View style={styles.mainContainer}>
+        <Form ref='newEventForm' label='New Event'>
+          <InputField style={styles.smText}
+            ref="title"
+            label="Trip Title"
+            placeholder=""
+          />
+          <InputField style={styles.smText}
+            ref="date"
+            label="Date"
+            placeholder=""
+          />
+          <InputField style={styles.smText}
+            ref="genLocation"
+            label="Vague Location"
+            placeholder="Visible to everyone."
+          />
+          <InputField style={styles.smText}
+            ref="specLocation"
+            label="Specific Location"
+            placeholder="Only visible to approved members."
+          />
+          <InputField style={styles.smText}
+            ref="activity"
+            label="Activity"
+            placeholder="What are you going to do?"
+          />
+          <InputField style={styles.smText}
+            ref="description"
+            label="Public Description"
+            placeholder="Visible to everyone."
+          />
+          <InputField style={styles.smText}
+            ref="extra"
+            label="Extras"
+            placeholder="Anything else? Only visible to approved members."
+          />
+        </Form>
+       </View>
+     )
    }
  }
  const styles = StyleSheet.create({
@@ -90,6 +133,9 @@ import {StackNavigator} from 'react-navigation';
      padding: 20,
      alignSelf: 'center',
      justifyContent: 'center'
+   },
+   smText: {
+     fontSize: 10
    }
  })
  module.exports = AddEvent;
